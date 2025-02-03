@@ -17,6 +17,9 @@ PORT = int(os.getenv("PORT", 3030))
 # Define a route for "/products"
 @app.route('/products', methods=['GET'])
 def get_products():
+    # Log the request (for debugging)
+    app.logger.info('Fetching products')
+
     # Return a JSON response with a list of products
     return jsonify([
         {"id": 1, "name": "Dog Food", "price": 19.99},
